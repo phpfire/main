@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
 class Dashboard extends CI_Controller {
 
     public function index()
@@ -14,5 +15,6 @@ class Dashboard extends CI_Controller {
 	}
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+
+/* End of file dashboard.php */
+/* Location: ./application/controllers/dashboard.php */

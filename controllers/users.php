@@ -15,6 +15,7 @@ class Users extends CI_Controller {
         $this->load->view('footer');
 	}
     
+    
     public function users_xhr()
     {
         
