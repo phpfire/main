@@ -196,8 +196,52 @@ class User {
         }
     }
     
+    public function seppuku()
+    {
+        if(!$this->id)
+        {
+            return FALSE;
+        }
+        //Delete messages.
+        $this->system->db->where('sender',$this->id);
+        $this->system->db->or_where('receiver',$this->id);
+        $this->system->db->delete('user_messages');
+        
+        //Delete ACL rules.
+        $this->system->db->delete('acl',array('uid'=>$this->id));
+        //Delete User record.
+        $this->system->db->delete('users',array('id'=>$this->id));
+    }
     
+    public function delete()
+    {
+        $this->seppuku();
+    }
     
+    public function clear_avatar()
+    {
+        if(strlen($this->avatar) > 0 AND is_file('./images/avatars/'.$this->avatar))
+        {
+            unlink('images/avatars/'.$this->avatar);
+            $data = array(
+               'avatar' => ""
+            );
+            $this->system->db->where('id', $this->id);
+            $this->system->db->update('users', $data);
+        }
+    }
+    
+    public function set_avatar($str)
+    {
+            $data = array(
+               'avatar' => $str
+            );
+            $this->system->db->where('id', $this->id);
+            $this->system->db->update('users', $data);
+    }
     
     
 }
+
+//End of file: User.php
+//Location: application/libraries/User.php

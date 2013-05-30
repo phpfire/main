@@ -44,7 +44,7 @@
     <!-- Main nav -->
     <div class="mainNav">
         <div class="user">
-            <a title="" class="leftUserDrop"><img width="70" height="70" src="<?php echo base_url();?>images/avatars/<?php echo $this->user->get_avatar();?>" alt="User Avatar" /><span>
+            <a title="" class="leftUserDrop" id="user_avatar"><img width="70" height="70" src="<?php echo base_url();?>images/avatars/<?php echo $this->user->get_avatar();?>" alt="User Avatar" /><span>
             <strong><?php echo $this->user->get_new_messages();?></strong></span></a><span><?php echo $this->user->name;?></span>
             <ul class="leftUser">
                 <li><a href="#" title="" class="sProfile">My profile</a></li>

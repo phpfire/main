@@ -229,6 +229,9 @@ class Users extends CI_Controller {
             $this->load->view('footer');
         } else {
             //Perform delete.
+            $user->seppuku();
+            $this->session->set_flashdata('message', 'User successfully removed!');
+            redirect('/users/', 'location');
         }
      
     }
